@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatMessage } from 'src/app/models/chat-message';
 import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
@@ -11,15 +12,15 @@ export class ChatComponent implements OnInit{
 
   }
 
-  ngOnInit():void{
-    this.chatService.joinRoom("ABC");
+  ngOnInit(): void {
+      this.chatService.joinRoom("General");
+  }
+  sendMessage(){  
+    const chatMessage={
+      message:'Buenas',
+      user:'1'
+    }as ChatMessage
+    this.chatService.sendMessage("General",chatMessage);
   }
 
-  sendMessage(){
-    const chatMessage={
-      message:'Hola',
-      user:'1'
-    }
-    this.chatService.sendMessage("ABC", chatMessage);
-  }
 }

@@ -27,6 +27,6 @@ export class ChatService {
   }
 
   sendMessage(roomId:string,chatMessage:ChatMessage){
-    this.stompClient.send(`/app/rooms/${roomId}/chat`,{},JSON.stringify(chatMessage));  
+    this.stompClient.send(`/app/chat/${roomId}`,{},JSON.stringify(chatMessage));  
   }
 }

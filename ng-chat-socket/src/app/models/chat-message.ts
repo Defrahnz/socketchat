@@ -1,4 +1,4 @@
 export interface ChatMessage{
-    user:string,
-    message:string
+    message: string,
+    user: string;
 }

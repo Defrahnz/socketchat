@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ChatMessage } from 'src/app/models/chat-message';
+import { Component,OnInit } from '@angular/core';
+import { ChatMessage } from 'src/app/models/Chat-message';
 import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
@@ -7,17 +7,16 @@ import { ChatService } from 'src/app/services/chat.service';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent implements OnInit{
-  constructor(private chatService:ChatService){
+export class ChatComponent implements OnInit {
+  constructor(private chatService: ChatService){}
 
+  ngOnInit():void{
+    this.chatService.joinRoom("General");
   }
 
-  ngOnInit(): void {
-      this.chatService.joinRoom("General");
-  }
-  sendMessage(){  
+  sendMessage(){
     const chatMessage={
-      message:'Buenas',
+      message:'Hola',
       user:'1'
     }as ChatMessage
     this.chatService.sendMessage("General",chatMessage);
